@@ -1,0 +1,20 @@
+{
+    "name": "clombarte/CastellersKata",
+    "description": "My implementation for the Castellers Kata",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carlos Lombarte",
+            "email": "lombartec@gmail.com",
+            "homepage": "https://github.com/clombarte"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Castellers": "src"
+        }
+    }
+}
