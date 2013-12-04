@@ -74,4 +74,17 @@ class CastellerTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals( $expected_output, $first_casteller->compare( $first_casteller, $second_casteller ), $message );
     }
+
+    /**
+     * Tests that compare sets a property class to false when a casteller does not fit the group of castellers.
+     */
+    public function testThatACastellerThatDoesNotFitTheGroupSetsAPropertyToFalse()
+    {
+        $obj = new Casteller( 100, 200 );
+        $casteller = new Casteller( 110, 100 );
+
+        $obj->compare( $obj, $casteller );
+
+        $this->assertFalse( $obj->isGroupCorrectForCasteller(), 'This method must return false when a casteller does not fit a group of castellers' );
+    }
 }
