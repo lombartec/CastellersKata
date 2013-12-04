@@ -39,12 +39,6 @@ class CastellerTest extends \PHPUnit_Framework_TestCase
     public function compareProvider()
     {
         return array(
-            'Equal Castellers' => array(
-                'first_casteller'   => new Casteller( 100, 100 ),
-                'second_casteller'  => new Casteller( 100, 100 ),
-                'expected'          => 0,
-                'message'           => 'When two castellers are equal 0 must be returned',
-            ),
             'First Casteller is greater' => array(
                 'first_casteller'   => new Casteller( 200, 200 ),
                 'second_casteller'  => new Casteller( 100, 100 ),
