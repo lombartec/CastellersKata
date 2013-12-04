@@ -54,4 +54,28 @@ class Casteller
     {
         return $this->weight;
     }
+
+    /**
+     * Determines if a Casteller is greater/lesser than or equal to another Casteller using height and weight to do so.
+     *
+     * @param Casteller $first_casteller    The first Casteller that will be compared with the second one.
+     * @param Casteller $second_casteller   The second Casteller that will be compared with the first one.
+     *
+     * @return integer Returns 0 when equal, -1 when the second casteller is greater, 1 when the first casteller is greater.
+     */
+    public function compare( Casteller $first_casteller, Casteller $second_casteller )
+    {
+        if ( $first_casteller->getHeight() < $second_casteller->getHeight() && $first_casteller->getWeight() < $second_casteller->getWeight() )
+        {
+            return -1;
+        }
+        else if ( $first_casteller->getHeight() > $second_casteller->getHeight() && $first_casteller->getWeight() > $second_casteller->getWeight() )
+        {
+            return 1;
+        }
+        else if ( $first_casteller->getHeight() == $second_casteller->getHeight() && $first_casteller->getWeight() == $second_casteller->getWeight() )
+        {
+            return 0;
+        }
+    }
 }
