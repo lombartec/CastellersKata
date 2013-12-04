@@ -94,7 +94,7 @@ class Casteller
 
     /**
      * Returns if a casteller fits the group he is in or not.
-     * 
+     *
      * @return boolean
      */
     public function isGroupCorrectForCasteller()

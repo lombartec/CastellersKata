@@ -42,19 +42,19 @@ class CastellerTest extends \PHPUnit_Framework_TestCase
             'Equal Castellers' => array(
                 'first_casteller'   => new Casteller( 100, 100 ),
                 'second_casteller'  => new Casteller( 100, 100 ),
-                'expected_output'   => 0,
+                'expected'          => 0,
                 'message'           => 'When two castellers are equal 0 must be returned',
             ),
             'First Casteller is greater' => array(
                 'first_casteller'   => new Casteller( 200, 200 ),
                 'second_casteller'  => new Casteller( 100, 100 ),
-                'expected_output'   => 1,
+                'expected'          => 1,
                 'message'           => 'When the first casteller is greater 1 must be returned',
             ),
             'Second Casteller is greater' => array(
                 'first_casteller'   => new Casteller( 100, 100 ),
                 'second_casteller'  => new Casteller( 200, 200 ),
-                'expected_output'   => -1,
+                'expected'   => -1,
                 'message'           => 'When the second casteller is greater -1 must be returned',
             ),
         );
@@ -67,24 +67,57 @@ class CastellerTest extends \PHPUnit_Framework_TestCase
      *
      * @param Casteller $first_casteller    The first Casteller that will be compared with the second one.
      * @param Casteller $second_casteller   The second Casteller that will be compared with the first one.
-     * @param integer   $expected_output    What compare method should return.
+     * @param integer   $expected           What compare method should return.
      * @param string    $message            An error message to be shown in case of test fail.
      */
-    public function testThatCompareCanCompareCastellersAsExpected( $first_casteller, $second_casteller, $expected_output, $message )
+    public function testThatCompareCanCompareCastellersAsExpected( $first_casteller, $second_casteller, $expected, $message )
     {
-        $this->assertEquals( $expected_output, $first_casteller->compare( $first_casteller, $second_casteller ), $message );
+        $this->assertEquals( $expected, $first_casteller->compare( $first_casteller, $second_casteller ), $message );
+    }
+
+    /**
+     * Data provider to test if a casteller fits in a group or not.
+     *
+     * @return array
+     */
+    public function fitsGroupProvider()
+    {
+        return array(
+            'Does not fit because greater weight' => array(
+                'first_casteller' => new Casteller( 100, 200 ),
+                'second_casteller' => new Casteller( 110, 100 ),
+                'expected' => false,
+                'message' => 'This method must return false when a casteller does not fit a group of castellers',
+            ),
+            'Does not fit because greater height' => array(
+                'first_casteller' => new Casteller( 200, 100 ),
+                'second_casteller' => new Casteller( 110, 100 ),
+                'expected' => false,
+                'message' => 'This method must return false when a casteller does not fit a group of castellers',
+            ),
+            'Does fit because both properties are smaller' => array(
+                'first_casteller' => new Casteller( 100, 100 ),
+                'second_casteller' => new Casteller( 200, 200 ),
+                'expected' => true,
+                'message' => 'This method must return true when a casteller does fit a group of castellers',
+            ),
+        );
     }
 
     /**
      * Tests that compare sets a property class to false when a casteller does not fit the group of castellers.
+     *
+     * @dataProvider fitsGroupProvider
+     *
+     * @param Casteller $first_casteller    The first Casteller that will be compared with the second one.
+     * @param Casteller $second_casteller   The second Casteller that will be compared with the first one.
+     * @param integer   $expected           What the method that determines if a casteller fits a group or not should return.
+     * @param string    $message            An error message to be shown in case of test fail.
      */
-    public function testThatACastellerThatDoesNotFitTheGroupSetsAPropertyToFalse()
+    public function testThatACastellerThatDoesNotFitTheGroupSetsAPropertyToFalse( $first_casteller, $second_casteller, $expected, $message )
     {
-        $obj = new Casteller( 100, 200 );
-        $casteller = new Casteller( 110, 100 );
+        $first_casteller->compare( $first_casteller, $second_casteller );
 
-        $obj->compare( $obj, $casteller );
-
-        $this->assertFalse( $obj->isGroupCorrectForCasteller(), 'This method must return false when a casteller does not fit a group of castellers' );
+        $this->assertEquals( $expected, $first_casteller->isGroupCorrectForCasteller(), $message );
     }
 }
