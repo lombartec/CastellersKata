@@ -44,4 +44,14 @@ class Casteller
     {
         return $this->height;
     }
+
+    /**
+     * Returns the weight of the casteller.
+     *
+     * @return integer
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
 }
