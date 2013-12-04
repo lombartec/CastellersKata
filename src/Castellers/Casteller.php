@@ -24,6 +24,13 @@ class Casteller
     private $weight;
 
     /**
+     * Determines if a casteller fits the group he is in or not.
+     *
+     * @var boolean
+     */
+    private $fits_group = true;
+
+    /**
      * Sets the value for height and weight.
      *
      * @param integer $height The height of the casteller.
@@ -58,6 +65,10 @@ class Casteller
     /**
      * Determines if a Casteller is greater/lesser than or equal to another Casteller using height and weight to do so.
      *
+     * For a casteller to be less/greater than or equal to another is when both his height and weight are less/greater than or equal to
+     * the height and weight of the other casteller, also, when a casteller does not fit the group of castellers he is in a special property is
+     * setted to true.
+     *
      * @param Casteller $first_casteller    The first Casteller that will be compared with the second one.
      * @param Casteller $second_casteller   The second Casteller that will be compared with the first one.
      *
@@ -77,5 +88,17 @@ class Casteller
         {
             return 0;
         }
+
+        $this->fits_group = false;
+    }
+
+    /**
+     * Returns if a casteller fits the group he is in or not.
+     * 
+     * @return boolean
+     */
+    public function isGroupCorrectForCasteller()
+    {
+        return $this->fits_group;
     }
 }
