@@ -101,6 +101,12 @@ class CastellerTest extends \PHPUnit_Framework_TestCase
                 'expected' => true,
                 'message' => 'This method must return true when a casteller does fit a group of castellers',
             ),
+            'Does not fit because both properties are equal' => array(
+                'first_casteller' => new Casteller( 100, 100 ),
+                'second_casteller' => new Casteller( 100, 100 ),
+                'expected' => false,
+                'message' => 'This method must return false when a casteller does not fit a group of castellers',
+            ),
         );
     }
 
