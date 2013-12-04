@@ -84,10 +84,6 @@ class Casteller
         {
             return 1;
         }
-        else if ( $first_casteller->getHeight() == $second_casteller->getHeight() && $first_casteller->getWeight() == $second_casteller->getWeight() )
-        {
-            return 0;
-        }
 
         $this->fits_group = false;
     }
