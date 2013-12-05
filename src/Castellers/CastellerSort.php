@@ -25,6 +25,11 @@ class CastellerSort
             $result[] = $castellers[1];
             $result[] = $castellers[0];
         }
+        else if ( $castellers[0]->getHeight() > $castellers[1]->getHeight() && $castellers[0]->getWeight() > $castellers[1]->getWeight() )
+        {
+            $result[] = $castellers[0];
+            $result[] = $castellers[1];
+        }
 
         return $result;
     }

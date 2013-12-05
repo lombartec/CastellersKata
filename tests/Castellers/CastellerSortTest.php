@@ -54,11 +54,11 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
     {
         $casteller_mock = $this->getMock( 'Castellers\Casteller', array( 'getHeight', 'getWeight' ), array(), 'Casteller', false );
 
-        $casteller_mock->expects( $this->once() )
+        $casteller_mock->expects( $this->atLeastOnce() )
             ->method( 'getHeight' )
             ->will( $this->returnValue( $height ) );
 
-        $casteller_mock->expects( $this->once() )
+        $casteller_mock->expects( $this->atLeastOnce() )
             ->method( 'getWeight' )
             ->will( $this->returnValue( $weight ) );
 
