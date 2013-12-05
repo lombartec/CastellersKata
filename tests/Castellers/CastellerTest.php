@@ -10,14 +10,35 @@ namespace Castellers;
 class CastellerTest extends \PHPUnit_Framework_TestCase
 {
     /**
+     * The tested object.
+     *
+     * @var Casteller
+     */
+    private $obj;
+
+    /**
+     * Executes before every test case execution.
+     */
+    public function setUp()
+    {
+        $this->obj = new Casteller( 100, 80 );
+    }
+
+    /**
+     * Executes after every test case execution.
+     */
+    public function tearDown()
+    {
+        $this->obj = null;
+    }
+
+    /**
      * Tests that getHeight method returns the setted value in the constructor.
      */
     public function testThatGetHeightReturnsTheConstructorSettedValue()
     {
-        $height = 100;
-        $weight = 80;
-        $obj    = new Casteller( $height, $weight );
-        $this->assertEquals( $height, $obj->getHeight(), 'The height returned by the object must be equal to ' . $weight );
+        $expected_height = 100;
+        $this->assertEquals( $expected_height, $this->obj->getHeight(), 'The height returned by the object must be equal to ' . $expected_height );
     }
 
     /**
@@ -25,9 +46,7 @@ class CastellerTest extends \PHPUnit_Framework_TestCase
      */
     public function testThatGetWeightReturnsTheConstructorSettedValue()
     {
-        $height = 100;
-        $weight = 80;
-        $obj    = new Casteller( $height, $weight );
-        $this->assertEquals( $weight, $obj->getWeight(), 'The weight returned by the object must be equal to ' . $weight );
+        $expected_weight = 80;
+        $this->assertEquals( $expected_weight, $this->obj->getWeight(), 'The weight returned by the object must be equal to ' . $expected_weight );
     }
 }
