@@ -25,7 +25,21 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
         );
 
         $obj = new CastellerSort();
-        $this->assertEquals( $expected, $obj->sortCastellersList( $castellers ), 'The second casteller has to be the first after sorting' );
+        $this->assertSame( $expected, $obj->sortCastellersList( $castellers ), 'The second casteller has to be the first after sorting' );
+    }
+
+    /**
+     * Tests that sortCastellerList method sorts Castellers correctly when every casteller is fine in its current position.
+     */
+    public function testThatSortCastellerListSortsWhenEveryCastellerIsWellPositioned()
+    {
+        $castellers = array(
+            $this->getCastellerMock( 100, 100 ),
+            $this->getCastellerMock( 50, 50 )
+        );
+
+        $obj = new CastellerSort();
+        $this->assertSame( $castellers, $obj->sortCastellersList( $castellers ), 'Nothing has to change as every casteller is well positioned' );
     }
 
     /**
