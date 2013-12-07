@@ -43,6 +43,33 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests that sortCastellersList sorts a Casteller array using the expected criteria.
+     */
+    public function testThatSortCastellersListSortsAsExpected()
+    {
+        $castellers = array(
+            $this->getCastellerMock( 65, 100 ),
+            $this->getCastellerMock( 70, 150 ),
+            $this->getCastellerMock( 56, 90 ),
+            $this->getCastellerMock( 75, 190 ),
+            $this->getCastellerMock( 60, 95 ),
+            $this->getCastellerMock( 68, 110 )
+        );
+
+        $expected = array(
+            $castellers[2],
+            $castellers[4],
+            $castellers[0],
+            $castellers[5],
+            $castellers[1],
+            $castellers[3],
+        );
+
+        $obj = new CastellerSort();
+        $this->assertSame( $expected, $obj->sortCastellersList( $castellers ), 'The method is not sorting correctly' );
+    }
+
+    /**
      * Creates a mock of the Casteller class with the expectations for the sorting method.
      *
      * @param integer $height The height returned by the mock when calling getHeight.
