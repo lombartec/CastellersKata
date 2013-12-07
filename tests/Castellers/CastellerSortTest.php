@@ -57,12 +57,12 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
         );
 
         $expected = array(
-            $castellers[2],
-            $castellers[4],
-            $castellers[0],
-            $castellers[5],
-            $castellers[1],
             $castellers[3],
+            $castellers[1],
+            $castellers[5],
+            $castellers[0],
+            $castellers[4],
+            $castellers[2],
         );
 
         $obj = new CastellerSort();
@@ -72,22 +72,18 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
     /**
      * Creates a mock of the Casteller class with the expectations for the sorting method.
      *
-     * @param integer $height The height returned by the mock when calling getHeight.
-     * @param integer $weight The weight returned by the mock when calling getWeight.
+     * @param integer $height The height returned by the mock when calling __toString.
+     * @param integer $weight The weight returned by the mock when calling __toString.
      *
      * @return \PHPUnit_Framework_MockObject_MockObject The mocked object.
      */
     private function getCastellerMock( $height, $weight )
     {
-        $casteller_mock = $this->getMock( 'Castellers\Casteller', array( 'getHeight', 'getWeight' ), array(), 'Casteller', false );
+        $casteller_mock = $this->getMock( 'Castellers\Casteller', array( '__toString' ), array(), 'Casteller', false );
 
-        $casteller_mock->expects( $this->atLeastOnce() )
-            ->method( 'getHeight' )
-            ->will( $this->returnValue( $height ) );
-
-        $casteller_mock->expects( $this->atLeastOnce() )
-            ->method( 'getWeight' )
-            ->will( $this->returnValue( $weight ) );
+        $casteller_mock->expects( $this->any() )
+            ->method( '__toString' )
+            ->will( $this->returnValue( "$height$weight" ) );
 
         return $casteller_mock;
     }

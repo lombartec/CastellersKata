@@ -49,4 +49,14 @@ class CastellerTest extends \PHPUnit_Framework_TestCase
         $expected_weight = 80;
         $this->assertEquals( $expected_weight, $this->obj->getWeight(), 'The weight returned by the object must be equal to ' . $expected_weight );
     }
+
+    /**
+     * Tests to determine if the object is being correctly represented as a string.
+     */
+    public function testThatToStringOutputsExpectedData()
+    {
+        $expected   = "10080";
+        $result     = '' . $this->obj; // forcing the __toString call.
+        $this->assertEquals( $expected, $result, 'The __toString method is not representing the object as expected' );
+    }
 }

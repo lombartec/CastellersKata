@@ -54,4 +54,14 @@ class Casteller
     {
         return $this->weight;
     }
+
+    /**
+     * Object representation when treating it as a string.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return '' . $this->getHeight() . $this->getWeight() . '';
+    }
 }

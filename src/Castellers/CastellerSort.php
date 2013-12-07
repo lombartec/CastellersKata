@@ -18,19 +18,17 @@ class CastellerSort
      */
     public function sortCastellersList( array $castellers )
     {
-        $result = array();
+        $sorted_castellers  = array();
+        $castellers_size    = count( $castellers );
 
-        if ( $castellers[0]->getHeight() < $castellers[1]->getHeight() && $castellers[0]->getWeight() < $castellers[1]->getWeight() )
+        for( $i = 0; $i < $castellers_size; $i++ )
         {
-            $result[] = $castellers[1];
-            $result[] = $castellers[0];
-        }
-        else if ( $castellers[0]->getHeight() > $castellers[1]->getHeight() && $castellers[0]->getWeight() > $castellers[1]->getWeight() )
-        {
-            $result[] = $castellers[0];
-            $result[] = $castellers[1];
+            $max_casteller_key = array_search( max( $castellers ), $castellers );
+            $sorted_castellers[] = &$castellers[$max_casteller_key];
+
+            unset( $castellers[$max_casteller_key] );
         }
 
-        return $result;
+        return $sorted_castellers;
     }
 }
