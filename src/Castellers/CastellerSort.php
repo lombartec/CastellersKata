@@ -29,6 +29,6 @@ class CastellerSort
             unset( $castellers[$max_casteller_key] );
         }
 
-        return $sorted_castellers;
+        return array_unique( $sorted_castellers );
     }
 }
