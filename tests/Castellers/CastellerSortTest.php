@@ -43,6 +43,26 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests that sortCastellersList method handles correctly two castellers that are equal.
+     */
+    public function testThatSortCastellerListHandlesEqualCastellersCorrectly()
+    {
+        $castellers = array(
+            $this->getCastellerMock( 100, 100 ),
+            $this->getCastellerMock( 100, 100 ),
+            $this->getCastellerMock( 200, 200 )
+        );
+
+        $expected = array(
+            $castellers[2],
+            $castellers[0],
+        );
+
+        $obj = new CastellerSort();
+        $this->assertSame( $expected, $obj->sortCastellersList( $castellers ), 'Equal castellers are not being handled correctly' );
+    }
+
+    /**
      * Tests that sortCastellersList sorts a Casteller array using the expected criteria.
      */
     public function testThatSortCastellersListSortsAsExpected()
