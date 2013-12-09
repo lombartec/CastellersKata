@@ -1,12 +1,12 @@
 {
-    "name": "clombarte/CastellersKata",
+    "name": "lombartec/CastellersKata",
     "description": "My implementation for the Castellers Kata",
     "license": "MIT",
     "authors": [
         {
             "name": "Carlos Lombarte",
             "email": "lombartec@gmail.com",
-            "homepage": "https://github.com/clombarte"
+            "homepage": "https://github.com/lombartec"
         }
     ],
     "require": {
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Castellers": "src"
+            "lombartec\\Castellers": "src"
         }
     }
 }
