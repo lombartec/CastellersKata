@@ -7,7 +7,7 @@ namespace Castellers;
  *
  * @author Carlos Lombarte <lombartec@gmail.com>
  */
-class Casteller
+class Casteller implements StringRepresentationInterface
 {
     /**
      * The height of the casteller.
@@ -36,32 +36,12 @@ class Casteller
     }
 
     /**
-     * Returns the height of the casteller.
-     *
-     * @return integer
-     */
-    public function getHeight()
-    {
-        return $this->height;
-    }
-
-    /**
-     * Returns the weight of the casteller.
-     *
-     * @return integer
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
-    /**
      * Object representation when treating it as a string.
      *
      * @return string
      */
     public function __toString()
     {
-        return '' . $this->getHeight() . $this->getWeight() . '';
+        return $this->height . $this->weight;
     }
 }

@@ -25,7 +25,7 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
         );
 
         $obj = new CastellerSort();
-        $this->assertSame( $expected, $obj->sortCastellersList( $castellers ), 'The second casteller has to be the first after sorting' );
+        $this->assertSame( $expected, $obj->sortItems( $castellers ), 'The second casteller has to be the first after sorting' );
     }
 
     /**
@@ -39,7 +39,7 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
         );
 
         $obj = new CastellerSort();
-        $this->assertSame( $castellers, $obj->sortCastellersList( $castellers ), 'Nothing has to change as every casteller is well positioned' );
+        $this->assertSame( $castellers, $obj->sortItems( $castellers ), 'Nothing has to change as every casteller is well positioned' );
     }
 
     /**
@@ -59,7 +59,7 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
         );
 
         $obj = new CastellerSort();
-        $this->assertSame( $expected, $obj->sortCastellersList( $castellers ), 'Equal castellers are not being handled correctly' );
+        $this->assertSame( $expected, $obj->sortItems( $castellers ), 'Equal castellers are not being handled correctly' );
     }
 
     /**
@@ -86,7 +86,7 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
         );
 
         $obj = new CastellerSort();
-        $this->assertSame( $expected, $obj->sortCastellersList( $castellers ), 'The method is not sorting correctly' );
+        $this->assertSame( $expected, $obj->sortItems( $castellers ), 'The method is not sorting correctly' );
     }
 
     /**

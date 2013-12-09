@@ -33,24 +33,6 @@ class CastellerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests that getHeight method returns the setted value in the constructor.
-     */
-    public function testThatGetHeightReturnsTheConstructorSettedValue()
-    {
-        $expected_height = 100;
-        $this->assertEquals( $expected_height, $this->obj->getHeight(), 'The height returned by the object must be equal to ' . $expected_height );
-    }
-
-    /**
-     * Tests that getWeight method returns the setted value in the constructor.
-     */
-    public function testThatGetWeightReturnsTheConstructorSettedValue()
-    {
-        $expected_weight = 80;
-        $this->assertEquals( $expected_weight, $this->obj->getWeight(), 'The weight returned by the object must be equal to ' . $expected_weight );
-    }
-
-    /**
      * Tests to determine if the object is being correctly represented as a string.
      */
     public function testThatToStringOutputsExpectedData()
