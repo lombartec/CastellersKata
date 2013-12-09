@@ -103,7 +103,7 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
 
         $casteller_mock->expects( $this->any() )
             ->method( '__toString' )
-            ->will( $this->returnValue( "$height$weight" ) );
+            ->will( $this->returnValue( $height . $weight ) );
 
         return $casteller_mock;
     }
