@@ -1,6 +1,6 @@
 <?php
 
-namespace Castellers;
+namespace lombartec\Castellers;
 
 /**
  * Defines that a class is able to sort in one way or another.

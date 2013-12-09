@@ -1,6 +1,6 @@
 <?php
 
-namespace Castellers;
+namespace lombartec\Castellers;
 
 /**
  * Responsible of sorting a list of Casteller instances.

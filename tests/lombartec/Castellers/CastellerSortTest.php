@@ -1,6 +1,6 @@
 <?php
 
-namespace Castellers;
+namespace lombartec\Castellers;
 
 /**
  * Test suite for the class CastellerSort.
@@ -99,7 +99,7 @@ class CastellerSortTest extends \PHPUnit_Framework_TestCase
      */
     private function getCastellerMock( $height, $weight )
     {
-        $casteller_mock = $this->getMock( 'Castellers\Casteller', array( '__toString' ), array(), 'Casteller', false );
+        $casteller_mock = $this->getMock( 'lombartec\Castellers\Casteller', array( '__toString' ), array(), 'Casteller', false );
 
         $casteller_mock->expects( $this->any() )
             ->method( '__toString' )

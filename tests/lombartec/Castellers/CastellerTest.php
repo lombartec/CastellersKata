@@ -1,6 +1,6 @@
 <?php
 
-namespace Castellers;
+namespace lombartec\Castellers;
 
 /**
  * Test suite for the class Casteller.

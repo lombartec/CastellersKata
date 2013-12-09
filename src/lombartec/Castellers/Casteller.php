@@ -1,6 +1,6 @@
 <?php
 
-namespace Castellers;
+namespace lombartec\Castellers;
 
 /**
  * Representation of a Casteller.

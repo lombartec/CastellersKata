@@ -1,6 +1,6 @@
 <?php
 
-namespace Castellers;
+namespace lombartec\Castellers;
 
 /**
  * Interface used to make sure that the class that implements it will have an string representation using the __toString() method.
